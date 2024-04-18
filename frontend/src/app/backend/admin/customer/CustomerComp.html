@@ -9,9 +9,7 @@
           <div class="help py-2" *ngIf="customerFg.controls['name'].touched
           && customerFg.controls['name'].errors?.['maxLength']" style="color: red">
             {{customerFg.controls['name'].errors?.['maxLength'].message}}
-          </div>
-
-          
+          </div>      
           <div class="help py-2" *ngIf="customerFg.controls['name'].touched
           && customerFg.controls['name'].errors?.['minLength']" style="color: red">
             {{customerFg.controls['name'].errors?.['minLength'].message}}
@@ -50,11 +48,7 @@
           </div>
         </div>
         <div class="mb-3">
-          <label class="form-label fw-bold">Customer Image</label>
-
-
-
-          
+          <label class="form-label fw-bold">Customer Image</label>          
           <input type="file" class="form-control" formControlName="image">
           <div id="name-help" class="form-text">
             We'll never share your name with anyone else.
