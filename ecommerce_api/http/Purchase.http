@@ -1,0 +1,56 @@
+###
+POST http://localhost:8080/purchase/save
+Content-Type: application/json
+
+{
+  "note": "note 1",
+  "totalAmount": 10.20,
+  "otherCost": 100.00
+}
+
+###
+POST http://localhost:8080/purchase/update
+Content-Type: application/json
+
+{
+  "id": "b952e6bc-af1c-4a08-8d6f-b2eb4c1e66aa",
+  "note": "note 2",
+  "totalAmount": 12.20,
+  "otherCost": 101.00
+}
+
+###
+POST http://localhost:8080/purchase/delete
+Content-Type: application/json
+
+{
+  "id": "b952e6bc-af1c-4a08-8d6f-b2eb4c1e66aa"
+  "name": "name 1",
+  "rolelist":[]
+}
+
+###
+POST http://localhost:8080/purchase/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "b952e6bc-af1c-4a08-8d6f-b2eb4c1e66aa"
+  ],
+  "page": 0,
+  "size": 10
+}
+
+###
+POST http://localhost:8080/purchase/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "b952e6bc-af1c-4a08-8d6f-b2eb4c1e66aa"
+  ],
+  "page": 0,
+  "size": 10
+}
+
+

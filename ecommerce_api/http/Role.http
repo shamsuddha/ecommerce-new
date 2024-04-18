@@ -1,0 +1,36 @@
+###
+POST http://localhost:8080/role/save
+Content-Type: application/json
+
+{
+  "name": "role 1"
+}
+
+###
+POST http://localhost:8080/role/update
+Content-Type: application/json
+
+{
+ "id": "576cd0ff-5bae-4c07-b5d7-4d83db2b1504",
+ "name": "role 100"
+}
+
+###
+POST http://localhost:8080/role/delete
+Content-Type: application/json
+
+{
+  "id": "576cd0ff-5bae-4c07-b5d7-4d83db2b1504"
+}
+
+###
+POST http://localhost:8080/role/search
+Content-Type: application/json
+
+{
+  "idList": [
+   "576cd0ff-5bae-4c07-b5d7-4d83db2b1504"
+    ],
+  "page": 0,
+  "size": 10
+}

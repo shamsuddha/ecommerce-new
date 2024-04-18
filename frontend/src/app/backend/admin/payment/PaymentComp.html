@@ -1,0 +1,48 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="row">
+    <div class="col-4">
+      <h5 class="my-2 py-3 px-3 bg-secondary text-light fw-bold">Add New Payment</h5>
+      <form>
+        <div class="mb-3">
+          <label for="category_name" class="form-label">Payment Name</label>
+          <input type="email" class="form-control" id="category_name" formControlName="name">
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="category_slug" class="form-label">Slug</label>
+          <input type="text" class="form-control" id="category_slug">
+        </div>
+        <div class="mb-3">
+          <label for="category_image" class="form-label">Category Image</label>
+          <input type="file" class="form-control" id="category_image">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Category</button>
+      </form>
+    </div>
+    <div class="col-8">
+      <h5 class="my-2 py-3 px-3 bg-secondary text-light fw-bold">All Payments</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">image</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>          
+          <!-- <tr *ngFor="let productCategory of productCategoryList$ | async; let i = index">
+            <th scope="row">1</th>
+            <td>{{productCategory.id}}</td>
+            <td>{{productCategory.name}}</td>
+            <td>{{productCategory.image}}</td>
+            <td>action</td>
+          </tr>
+   -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

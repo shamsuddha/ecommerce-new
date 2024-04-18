@@ -1,0 +1,39 @@
+###
+POST http://localhost:8080/stock/save
+Content-Type: application/json
+
+{
+  "code": "code 1",
+  "name": "name 1"
+}
+
+###
+POST http://localhost:8080/stock/update
+Content-Type: application/json
+
+{
+  "id": "2bc76ce4-4782-4bdb-be0c-0ecae23f4f0a",
+  "code": "code 10",
+  "name": "name 10"
+}
+
+###
+POST http://localhost:8080/stock/delete
+Content-Type: application/json
+
+{
+  "id": "2bc76ce4-4782-4bdb-be0c-0ecae23f4f0a"
+}
+
+###
+POST http://localhost:8080/stock/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "2bc76ce4-4782-4bdb-be0c-0ecae23f4f0a"
+  ],
+  "page": 0,
+  "size": 10
+}
+

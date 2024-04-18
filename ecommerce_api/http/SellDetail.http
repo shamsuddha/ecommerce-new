@@ -1,0 +1,39 @@
+###
+POST http://localhost:8080/sell-detail/save
+Content-Type: application/json
+
+{
+  "code": "code 1",
+  "name": "name 1"
+}
+
+###
+POST http://localhost:8080/sell-detail/update
+Content-Type: application/json
+
+{
+  "id": "ad2507db-7deb-46d5-93c6-f9bfe6e77cc6",
+  "code": "code 10",
+  "name": "name 10"
+}
+
+###
+POST http://localhost:8080/sell-detail/delete
+Content-Type: application/json
+
+{
+  "id": "ad2507db-7deb-46d5-93c6-f9bfe6e77cc6"
+}
+
+###
+POST http://localhost:8080/sell-detail/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "ad2507db-7deb-46d5-93c6-f9bfe6e77cc6"
+  ],
+  "page": 0,
+  "size": 10
+}
+

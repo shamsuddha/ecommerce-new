@@ -1,0 +1,41 @@
+###
+POST http://localhost:8080/product-category/save
+Content-Type: application/json
+
+{
+  "name": "name 1",
+  "image": "image 1",
+  "slug": "slug 1"
+}
+
+###
+POST http://localhost:8080/product-category/update
+Content-Type: application/json
+
+{
+  "id": "83123c1e-c289-4c3f-8221-3e02bcef3bbb",
+  "name": "name 2",
+  "image": "image 2",
+  "slug": "slug 2"
+}
+
+###
+POST http://localhost:8080/product-category/delete
+Content-Type: application/json
+
+{
+  "id": "83123c1e-c289-4c3f-8221-3e02bcef3bbb"
+}
+
+###
+POST http://localhost:8080/product-category/search
+Content-Type: application/json
+
+{
+  "idList": [
+    ""
+  ],
+  "page": 0,
+  "size": 10
+}
+

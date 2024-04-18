@@ -1,0 +1,39 @@
+###
+POST http://localhost:8080/expense/save
+Content-Type: application/json
+
+{
+  "purpose": "purpose 1",
+  "amount": 1020.00
+}
+
+###
+POST http://localhost:8080/expense/update
+Content-Type: application/json
+
+{
+  "id": "cff3e18b-ea4e-4692-bed5-aabe671a816b",
+  "purpose": "purpose 100",
+  "amount": 10020.00
+}
+
+###
+POST http://localhost:8080/expense/delete
+Content-Type: application/json
+
+{
+ "id": "cff3e18b-ea4e-4692-bed5-aabe671a816b"
+}
+
+###
+POST http://localhost:8080/expense/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "cff3e18b-ea4e-4692-bed5-aabe671a816b"
+  ],
+  "page": 0,
+  "size": 10
+}
+

@@ -1,0 +1,45 @@
+###
+POST http://localhost:8080/supplier/save
+Content-Type: application/json
+
+{
+  "name": "supplier 1",
+  "company": "company 1",
+  "address": "address 1",
+  "phoneNumber": "01879830435",
+  "currentBalance": "200.22"
+}
+
+###
+POST http://localhost:8080/supplier/update
+Content-Type: application/json
+
+{
+ "id": "25a33071-4803-4e70-98f5-d2dc85e035db",
+  "name": "supplier 2",
+  "company": "company 2",
+  "address": "address 3",
+  "phoneNumber": "01879830435",
+  "currentBalance": "200.00"
+}
+
+###
+POST http://localhost:8080/supplier/delete
+Content-Type: application/json
+
+{
+  "id": "25a33071-4803-4e70-98f5-d2dc85e035db"
+}
+
+###
+POST http://localhost:8080/supplier/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "25a33071-4803-4e70-98f5-d2dc85e035db"
+  ],
+  "page": 0,
+  "size": 10
+}
+

@@ -1,0 +1,41 @@
+###
+POST http://localhost:8080/customer/save
+Content-Type: application/json
+
+{
+  "name": "name 1",
+  "email": "email@email.com",
+  "phone": "01879830435",
+  "address": "address 1",
+  "currentBalance": 200.22
+}
+
+###
+POST http://localhost:8080/customer/update
+Content-Type: application/json
+
+{
+  "id": "de193877-290a-41ae-a9e7-668743c7444f",
+  "name": "name 100",
+  "email": "email100@email.com"
+}
+
+###
+POST http://localhost:8080/customer/delete
+Content-Type: application/json
+
+{
+ "id": "de193877-290a-41ae-a9e7-668743c7444f"
+}
+
+###
+POST http://localhost:8080/customer/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "de193877-290a-41ae-a9e7-668743c7444f"
+  ],
+  "page": 0,
+  "size": 10
+}

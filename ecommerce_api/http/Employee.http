@@ -1,0 +1,42 @@
+###
+POST http://localhost:8080/employee/save
+Content-Type: application/json
+
+{
+  "name": "employee 1",
+  "email": "email@email.com",
+  "phone": "01879830435",
+  "address": "address 1",
+  "currentBalance": 200.22
+}
+
+###
+POST http://localhost:8080/employee/update
+Content-Type: application/json
+
+{
+  "id": "6d813eb7-bf03-4690-b57f-ef3caeda2699",
+  "name": "name 100",
+  "email": "email100@email.com"
+}
+
+###
+POST http://localhost:8080/employee/delete
+Content-Type: application/json
+
+{
+  "id": "6d813eb7-bf03-4690-b57f-ef3caeda2699"
+}
+
+###
+POST http://localhost:8080/employee/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "6d813eb7-bf03-4690-b57f-ef3caeda2699"
+  ],
+  "page": 0,
+  "size": 10
+}
+

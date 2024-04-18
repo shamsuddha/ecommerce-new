@@ -1,0 +1,39 @@
+###
+POST http://localhost:8080/payment/save
+Content-Type: application/json
+
+{
+  "transactionType": "advance",
+  "purpose": "purpose one"
+}
+
+###
+POST http://localhost:8080/payment/update
+Content-Type: application/json
+
+{
+  "id": "353b8463-d76a-4117-91f2-1c38ef69ab30",
+  "transactionType": "due",
+  "purpose": "purpose two"
+}
+
+###
+POST http://localhost:8080/payment/delete
+Content-Type: application/json
+
+{
+  "id": "353b8463-d76a-4117-91f2-1c38ef69ab30"
+}
+
+###
+POST http://localhost:8080/payment/search
+Content-Type: application/json
+
+{
+  "idList": [
+  "353b8463-d76a-4117-91f2-1c38ef69ab30"
+  ],
+  "page": 0,
+  "size": 10
+}
+

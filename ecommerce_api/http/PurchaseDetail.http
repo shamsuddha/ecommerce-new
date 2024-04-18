@@ -1,0 +1,41 @@
+###
+POST http://localhost:8080/purchase-detail/save
+Content-Type: application/json
+
+{
+  "quantity": 10.20,
+  "unitPrice": 10.20,
+  "discount": 10.20
+}
+
+###
+POST http://localhost:8080/purchase-detail/update
+Content-Type: application/json
+
+{
+  "id": "70b4f575-dafa-46a5-9457-827d53931877",
+  "quantity": 10.30,
+  "unitPrice": 10.30,
+  "discount": 10.30
+}
+
+###
+POST http://localhost:8080/purchase-detail/delete
+Content-Type: application/json
+
+{
+ "id": "70b4f575-dafa-46a5-9457-827d53931877"
+}
+
+###
+POST http://localhost:8080/purchase-detail/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "70b4f575-dafa-46a5-9457-827d53931877"
+  ],
+  "page": 0,
+  "size": 10
+}
+

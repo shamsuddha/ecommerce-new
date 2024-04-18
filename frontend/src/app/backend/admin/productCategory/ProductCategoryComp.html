@@ -1,0 +1,85 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="row">
+    <div class="col-4">
+      <h5 class="my-2 py-3 px-3 bg-secondary text-light fw-bold">Add New Category</h5>
+      <form [formGroup]="productCategoryFg">
+        <div class="mb-3">
+          <label for="category_name" class="form-label fw-bold">Category Name</label>
+          <input type="text" class="form-control" id="category_name" formControlName="name">
+          <div id="name-help" class="form-text">
+            We'll never share your name with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="category_slug" class="form-label fw-bold">Slug</label>
+          <input type="text" class="form-control" id="category_slug" formControlName="slug">
+        </div>
+        <div class="mb-3">
+          <label for="category_image" class="form-label fw-bold">Category Image</label>
+          <input type="file" class="form-control" id="category_image" formControlName="image">
+        </div>
+        @if (productCategoryFg.controls['updateMode'].value == true) {
+        <button type="submit" class="btn btn-info mx-1" (click)="update()">Update</button>
+        }
+        @else {
+        <button type="submit" class="btn btn-primary mx-1" (click)="save()">Save</button>
+        }
+        <button type="submit" class="btn btn-success mx-1" (click)="search()">Search</button>
+        <button type="submit" class="btn btn-success mx-1" (click)="reset()">Reset</button>
+      </form>
+    </div>
+    <div class="col-8">
+      <h5 class="my-2 py-3 px-3 bg-secondary text-light fw-bold">All Categories</h5>
+      <div>
+        <table class="table">
+          <thead class="table-light">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of productCategoryList$ | async; let i = index">
+              <td>{{category.name}}</td>
+              <td>{{category.slug}}</td>
+              <td>
+                @if(category.enabled == true)
+                {
+                Active
+                }
+                @else
+                {
+                Inactive
+                }
+              </td>
+              <td>
+                @if(category.enabled == false)
+                {
+                <button type="button" (click)="onUpdateClick(category)"
+                  class="btn btn-success waves-effect waves-light mx-1">
+                  Make Active
+                </button>
+                }
+                <button type="button" (click)="onUpdateClick(category)"
+                  class="btn btn-info waves-effect waves-light mx-1">
+                  Edit
+                </button>
+                <button type="button" (click)="delete(category)" class="btn btn-danger waves-effect waves-light mx-1">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-xs-12 col-12">
+            <!-- <pagination [totalItems]="(productCategoryList$ | async)?.length" (pageChanged)="pageChanged($event)">
+            </pagination> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

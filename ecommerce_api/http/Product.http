@@ -1,0 +1,47 @@
+###
+POST http://localhost:8080/product/save
+Content-Type: application/json
+
+{
+  "name": "product 1",
+  "code": "code 1",
+  "currentStock": 10.10,
+  "sellingPrice": 100.10,
+  "buyingPrice": 90.10,
+  "description": "description 1",
+  "image": "image 1"
+}
+
+###
+POST http://localhost:8080/product/update
+Content-Type: application/json
+
+{
+  "id": "486ad89c-30cf-45ea-872b-5a2aa38fef92",
+  "name": "product 2",
+  "code": "code 2",
+  "currentStock": 12.10,
+  "sellingPrice": 102.10,
+  "buyingPrice": 92.10
+}
+
+###
+POST http://localhost:8080/product/delete
+Content-Type: application/json
+
+{
+  "id": "486ad89c-30cf-45ea-872b-5a2aa38fef92"
+}
+
+###
+POST http://localhost:8080/product/search
+Content-Type: application/json
+
+{
+  "idList": [
+    "486ad89c-30cf-45ea-872b-5a2aa38fef92"
+  ],
+  "page": 0,
+  "size": 10
+}
+

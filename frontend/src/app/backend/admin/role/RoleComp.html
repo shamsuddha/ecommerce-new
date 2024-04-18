@@ -1,0 +1,61 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Sell</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Add New Role</h3>
+      <form>
+        <div class="mb-3">
+          <label for="category_name" class="form-label">Role Name</label>
+          <input type="email" class="form-control" id="category_name" formControlName="name">
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="category_slug" class="form-label">Slug</label>
+          <input type="text" class="form-control" id="category_slug">
+        </div>
+        <div class="mb-3">
+          <label for="category_image" class="form-label">Role Image</label>
+          <input type="file" class="form-control" id="category_image">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Role</button>
+      </form>
+    </div>
+    <div class="col-8">
+      <h3>All Categories</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">image</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>          
+          <!-- <tr *ngFor="let productRole of productRoleList$ | async; let i = index">
+            <th scope="row">1</th>
+            <td>{{productRole.id}}</td>
+            <td>{{productRole.name}}</td>
+            <td>{{productRole.image}}</td>
+            <td>action</td>
+          </tr>
+   -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

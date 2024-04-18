@@ -1,0 +1,41 @@
+###
+POST http://localhost:8080/employee-role/save
+Content-Type: application/json
+
+{
+  "employee": 
+    {
+      "id": "06474637-9a71-415d-9b66-b2c24e3b7568"
+    },
+
+  "role":
+    {
+      "id": "15653a30-ad4e-4ac8-a230-fdce8bc8cf80"
+    }
+}
+
+###
+POST http://localhost:8080/employee-role/update
+Content-Type: application/json
+
+{
+ "id": "d8a8f98d-2b9e-40c7-87e2-7cd2cfd97eb5"
+}
+
+###
+POST http://localhost:8080/employee-role/delete
+Content-Type: application/json
+
+{
+  "id": "d8a8f98d-2b9e-40c7-87e2-7cd2cfd97eb5"
+}
+
+###
+POST http://localhost:8080/employee-role/search
+Content-Type: application/json
+
+{
+  "idList": ["d8a8f98d-2b9e-40c7-87e2-7cd2cfd97eb5"],
+  "page": 0,
+  "size": 10
+}
