@@ -30,14 +30,7 @@
           <div id="name-help" class="form-text">
             We'll never share your name with anyone else.
           </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label fw-bold">Current Balance</label>
-          <input type="number" class="form-control" formControlName="currentBalance">
-          <div id="name-help" class="form-text">
-            We'll never share your name with anyone else.
-          </div>
-        </div>
+        </div>     
         <div class="mb-3">
           <label class="form-label fw-bold">Image</label>
           <input type="file" class="form-control" formControlName="image">
@@ -62,8 +55,8 @@
           <thead class="table-light">
             <tr>
               <th>Name</th>
-              <th>Phone</th>
-              <th>Current Balance</th>
+              <th>Phone</th>              
+              <th>Email</th>              
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -72,7 +65,7 @@
             <tr *ngFor="let employee of employeeList$ | async; let i = index">
               <td>{{employee.name}}</td>
               <td>{{employee.phone}}</td>
-              <td>{{employee.currentBalance}}</td>
+              <td>{{employee.email}}</td>
               <td>
                 @if(employee.enabled == true)
                 {

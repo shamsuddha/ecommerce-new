@@ -28,8 +28,6 @@ export class Employee extends AuditLog {
   @prop()
   address: string | null = null;
   @prop()
-  currentBalance: number | null = null;
-  @prop()
   image: string | null = null;
 
   @propArray(Purchase, { createBlank: false })
