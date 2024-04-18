@@ -71,6 +71,7 @@
           <thead class="table-light">
             <tr>
               <th>Name</th>
+              <th>Phone</th>
               <th>Current Balance</th>
               <th>Status</th>
               <th>Action</th>
@@ -79,6 +80,7 @@
           <tbody>
             <tr *ngFor="let customer of customerList$ | async; let i = index">
               <td>{{customer.name}}</td>
+              <td>{{customer.phone}}</td>
               <td>{{customer.currentBalance}}</td>
               <td>
                 @if(customer.enabled == true)
@@ -93,7 +95,7 @@
               <td>
                 @if(customer.enabled == false)
                 {
-                <button type="button" (click)="onUpdateClick(customer)"
+                <button type="button" (click)="makeActive(customer)"
                   class="btn btn-success waves-effect waves-light mx-1">
                   Make Active
                 </button>

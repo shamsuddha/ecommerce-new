@@ -68,17 +68,21 @@ public class PurchaseService {
         return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
     }
 
-//    public Purchase saveWithDetail(Purchase purchase) {
-//        purchase.getPurchaseDetailList().forEach(e -> System.out.println("from prop " + e.getId()));
-//        purchase.getPurchaseListSerde().forEach(e -> System.out.println("from serde " + e.getId()));
-//        Purchase purchaseSaved = this.purchaseRepository.save(purchase);
-//        List<PurchaseDetail> purchaseDetailList = purchase.getPurchaseDetailList().stream().map(e -> {
-//            e.setPurchase(new Purchase(purchaseSaved.getId()));
-//            return e;
-//        }).toList();
-//        List<PurchaseDetail> purchaseDetailListSaved = this.purchaseDetailRepository.saveAll(purchaseDetailList);
-//        purchaseSaved.setPurchaseDetailList(purchaseDetailListSaved);
-//        return purchaseSaved;
-//    }
+    
+
+   public Purchase saveWithDetail(Purchase purchase) {
+       purchase.getPurchaseDetailList().forEach(e -> System.out.println("from prop " + e.getId()));
+       //purchase.getPurchaseDetailListSerde().forEach(e -> System.out.println("from serde " + e.getId()));
+       Purchase purchaseSaved = this.purchaseRepository.save(purchase);
+
+       List<PurchaseDetail> purchaseDetailList = purchase.getPurchaseDetailList().stream().map(e -> {
+           e.setPurchase(new Purchase(purchaseSaved.getId()));
+           return e;
+       }).toList();
+
+       List<PurchaseDetail> purchaseDetailListSaved = this.purchaseDetailRepository.saveAll(purchaseDetailList);
+       purchaseSaved.setPurchaseDetailList(purchaseDetailListSaved);
+       return purchaseSaved;
+   }
 
 }

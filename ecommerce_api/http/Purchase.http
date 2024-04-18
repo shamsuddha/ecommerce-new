@@ -54,3 +54,29 @@ Content-Type: application/json
 }
 
 
+
+
+###
+POST http://localhost:8080/purchase/save-with-purchase-detail
+Content-Type: application/json
+
+{
+
+  "note": "note 1",
+  "totalAmount": 10.20,
+  "otherCost": 100.00,
+  "purchaseDetailList":[
+    {
+  "quantity": 10.2,
+  "unitPrice": 10.2,
+  "discount": 10.2,
+  "purchase": null,
+  "purchaseId": null,
+  "product": null,
+  "productId": null
+    }
+
+  ]
+
+}
+

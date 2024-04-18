@@ -30,4 +30,9 @@ export class CustomerController {
     customerSearchDto);
   }
 
+  makeActive(customer: Customer) {
+    return this.httpClient.post<boolean>('http://localhost:8080/customer/make-active', 
+    customer)
+  }
+
 }

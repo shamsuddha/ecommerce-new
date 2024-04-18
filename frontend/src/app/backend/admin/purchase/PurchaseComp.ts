@@ -90,9 +90,6 @@ export class PurchaseComp implements OnInit {
     this.purchaseController.saveWithDetail(purchase).subscribe((e) => {
       this.search();
     });
-
-
-
   }
 
   onUpdateClick(purchase: Purchase) {

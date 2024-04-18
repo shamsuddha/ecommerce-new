@@ -38,4 +38,8 @@ public class CustomerController {
         return new ResponseEntity(customerService.searchCustomer(customerSearchDto), HttpStatusCode.valueOf(200));
     }
 
+    @PostMapping("/make-active")
+    public ResponseEntity<Page<Customer>> makeActive(@RequestBody Customer customer) {
+        return new ResponseEntity(customerService.makeActiveCustomer(customer), HttpStatusCode.valueOf(200));
+    }
 }

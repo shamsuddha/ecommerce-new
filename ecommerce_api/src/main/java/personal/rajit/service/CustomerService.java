@@ -49,6 +49,7 @@ public class CustomerService {
     public String deleteCustomer(Customer customer) {
         var customerDb = entityValidationService.validateCustomer(customer.getId());
         customerDb.setEnabled(Boolean.FALSE);
+        //customerDb.setCurrentBalance(0.00);
         customerRepository.save(customerDb);
         return "Customer deleted successfully";
     }
@@ -64,6 +65,15 @@ public class CustomerService {
                 .offset(pageable.getOffset())
                 .orderBy(qCustomer.createdDate.desc());
         return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    public String makeActiveCustomer(Customer customer) {
+        var customerDb = entityValidationService.validateCustomer(customer.getId());
+        customerDb.setEnabled(Boolean.TRUE);
+        //customerDb.setCurrentBalance(0.00);
+        customerRepository.save(customerDb);
+        return "Customer made actvie again";
     }
 
 }

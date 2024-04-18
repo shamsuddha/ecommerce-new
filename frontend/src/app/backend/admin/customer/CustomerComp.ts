@@ -83,4 +83,13 @@ export class CustomerComp implements OnInit {
     this.customerFg.reset();
   }
 
+  makeActive(customer: Customer) {
+    this.customerController.makeActive(customer).subscribe((e)=> {
+      this.search;
+    })
+
+   
+    }
+    
+
 }

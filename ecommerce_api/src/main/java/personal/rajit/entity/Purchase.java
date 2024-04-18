@@ -44,6 +44,8 @@ public class Purchase extends Auditable{
     private List<PurchaseDetail> purchaseDetailList;
 
 
-
+    public Purchase(String id) {
+      this.id = id;
+  }
 
 }

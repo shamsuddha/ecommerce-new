@@ -35,9 +35,9 @@ public class PurchaseController {
         return new ResponseEntity(purchaseService.searchPurchase(purchaseSearchDto), HttpStatusCode.valueOf(200));
     }
 
-//    @PostMapping("/save-with-purchase-detail")
-//    public ResponseEntity<Page<Purchase>> saveWithDetail(@RequestBody Purchase purchase) {
-//        return new ResponseEntity(purchaseService.saveWithDetail(purchase), HttpStatusCode.valueOf(200));
-//    }
+    @PostMapping("/save-with-purchase-detail")
+    public ResponseEntity<Purchase> saveWithDetail(@RequestBody Purchase purchase) {
+        return new ResponseEntity(purchaseService.saveWithDetail(purchase), HttpStatusCode.valueOf(200));
+    }
 
 }
