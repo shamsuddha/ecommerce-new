@@ -59,37 +59,37 @@ public class CustomerService {
         return "Customer deleted successfully";
     }
 
-    // public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto) {
-    //     Predicate predicate = makePredicate(customerSearchDto);
-    //     Pageable pageable = PageRequest.of(customerSearchDto.getPage(), customerSearchDto.getSize());
-    //     final QCustomer qCustomer = QCustomer.customer;
-    //     var query = new JPAQuery<Customer>(entityManager)
-    //             .from(qCustomer)
-    //             .where(predicate)
-    //             .limit(pageable.getPageSize())
-    //             .offset(pageable.getOffset())
-    //             .orderBy(qCustomer.createdDate.desc());
-    //     return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
-    // }
+     public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto) {
+         Predicate predicate = makePredicate(customerSearchDto);
+         Pageable pageable = PageRequest.of(customerSearchDto.getPage(), customerSearchDto.getSize());
+         final QCustomer qCustomer = QCustomer.customer;
+         var query = new JPAQuery<Customer>(entityManager)
+                 .from(qCustomer)
+                 .where(predicate)
+                 .limit(pageable.getPageSize())
+                 .offset(pageable.getOffset())
+                 .orderBy(qCustomer.createdDate.desc());
+         return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
+     }
 
-    public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto)
-    {
-        Predicate predicate = makePredicate(customerSearchDto);
-        Pageable pageable = PageRequest.of(customerSearchDto.getPage(), customerSearchDto.getSize());
-
-        final QCustomer qCustomer = QCustomer.customer;
-        final QSell qSell = QSell.sell;
-
-        var query = new JPAQuery<Customer>(entityManager)
-        .from(qCustomer)
-        .leftJoin(qSell)
-        .where(predicate)
-        .limit(10);
-
-        return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
-
-
-    }
+//    public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto)
+//    {
+//        Predicate predicate = makePredicate(customerSearchDto);
+//        Pageable pageable = PageRequest.of(customerSearchDto.getPage(), customerSearchDto.getSize());
+//
+//        final QCustomer qCustomer = QCustomer.customer;
+//        final QSell qSell = QSell.sell;
+//
+//        var query = new JPAQuery<Customer>(entityManager)
+//        .from(qCustomer)
+//        .leftJoin(qSell)
+//        .where(predicate)
+//        .limit(10);
+//
+//        return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
+//
+//
+//    }
 
 
 
