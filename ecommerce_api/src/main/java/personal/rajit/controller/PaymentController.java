@@ -27,7 +27,7 @@ public class PaymentController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deletePayment(@RequestBody Payment payment) {
+    public ResponseEntity<String> delete(@RequestBody Payment payment) {
         return new ResponseEntity(paymentService.deletePayment(payment), HttpStatusCode.valueOf(200));
     }
 

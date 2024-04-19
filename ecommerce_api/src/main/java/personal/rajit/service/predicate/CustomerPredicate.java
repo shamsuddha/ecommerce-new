@@ -10,6 +10,7 @@ import personal.rajit.entity.QCustomer;
 public class CustomerPredicate {
 
     private static final QCustomer qCustomer = QCustomer.customer;
+
     //private static final QRoomCategory qRoomCategory = QRoomCategory.roomCategory;
 
     public static Predicate makePredicate(CustomerSearchDto customerSearchDto) {

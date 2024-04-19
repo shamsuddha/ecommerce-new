@@ -50,5 +50,4 @@ public class Customer extends Auditable {
         this.id = id;
     }
 
-
 }

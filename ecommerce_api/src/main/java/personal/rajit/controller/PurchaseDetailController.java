@@ -26,7 +26,7 @@ public class PurchaseDetailController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deletePurchaseDetail(@RequestBody PurchaseDetail purchaseDetail) {
+    public ResponseEntity<String> delete(@RequestBody PurchaseDetail purchaseDetail) {
         return new ResponseEntity(purchaseDetailService.deletePurchaseDetail(purchaseDetail), HttpStatusCode.valueOf(200));
     }
 

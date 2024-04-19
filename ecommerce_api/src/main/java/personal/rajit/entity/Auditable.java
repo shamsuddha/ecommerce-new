@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class Auditable {
+
     @CreatedBy
     @Column(name = "created_by", updatable = false)
     protected String createdBy;
@@ -44,4 +45,5 @@ public class Auditable {
 
     @Column(name = "enabled", nullable = false, columnDefinition = "boolean default true")
     protected Boolean enabled = true;
+    
 }

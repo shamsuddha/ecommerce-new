@@ -23,4 +23,5 @@ public class EmployeeRoleSearchDto extends SearchDto {
   private String codeIgnoreCase;
   private String name;
   private String nameIgnoreCase;
+  
 }

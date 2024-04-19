@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class CustomerSearchDto extends SearchDto {
+
     private List<String> idList;
     private List<String> idNotEqualList;
 
@@ -22,5 +23,5 @@ public class CustomerSearchDto extends SearchDto {
     private String codeIgnoreCase;
     private String name;
     private String nameIgnoreCase;
-    private String roomCategoryName;
+
 }

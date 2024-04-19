@@ -27,7 +27,7 @@ public class StockController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteStock(@RequestBody Stock stock) {
+    public ResponseEntity<String> delete(@RequestBody Stock stock) {
         return new ResponseEntity(stockService.deleteStock(stock), HttpStatusCode.valueOf(200));
     }
 

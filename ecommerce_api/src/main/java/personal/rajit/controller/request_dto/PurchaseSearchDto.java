@@ -15,9 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class PurchaseSearchDto extends SearchDto {
+
     private List<String> idList;
     private List<String> idNotEqualList;
 
     private String name;
     private String nameIgnoreCase;
+    
 }

@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteProduct(@RequestBody Product product) {
+    public ResponseEntity<String> delete(@RequestBody Product product) {
         return new ResponseEntity(productService.deleteProduct(product), HttpStatusCode.valueOf(200));
     }
 

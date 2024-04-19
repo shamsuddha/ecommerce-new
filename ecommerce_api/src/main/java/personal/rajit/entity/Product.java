@@ -70,4 +70,5 @@ public class Product extends Auditable{
     public Product(String id) {
         this.id = id;
     }
+    
 }

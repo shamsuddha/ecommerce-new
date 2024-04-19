@@ -18,8 +18,8 @@ public class CustomerController {
 
     @PostMapping("/save")
     public ResponseEntity<Customer> save(@RequestBody Customer customer) {
-        System.out.println(customer.getId());
-        System.out.println(customer.getName());
+       // System.out.println(customer.getId());
+       // System.out.println(customer.getName());
         return new ResponseEntity(customerService.saveCustomer(customer), HttpStatusCode.valueOf(200));
     }
 
@@ -29,7 +29,7 @@ public class CustomerController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteCustomer(@RequestBody Customer customer) {
+    public ResponseEntity<String> delete(@RequestBody Customer customer) {
         return new ResponseEntity(customerService.deleteCustomer(customer), HttpStatusCode.valueOf(200));
     }
 
@@ -42,4 +42,5 @@ public class CustomerController {
     public ResponseEntity<Page<Customer>> makeActive(@RequestBody Customer customer) {
         return new ResponseEntity(customerService.makeActiveCustomer(customer), HttpStatusCode.valueOf(200));
     }
+    
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import personal.rajit.controller.request_dto.CustomerSearchDto;
 import personal.rajit.entity.Customer;
 import personal.rajit.entity.QCustomer;
+import personal.rajit.entity.QSell;
 import personal.rajit.repository.CustomerRepository;
 import personal.rajit.service.common.EntityValidationService;
 
@@ -45,6 +46,10 @@ public class CustomerService {
         return customerDb;
     }
 
+
+
+
+
     @org.springframework.transaction.annotation.Transactional
     public String deleteCustomer(Customer customer) {
         var customerDb = entityValidationService.validateCustomer(customer.getId());
@@ -54,18 +59,45 @@ public class CustomerService {
         return "Customer deleted successfully";
     }
 
-    public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto) {
+    // public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto) {
+    //     Predicate predicate = makePredicate(customerSearchDto);
+    //     Pageable pageable = PageRequest.of(customerSearchDto.getPage(), customerSearchDto.getSize());
+    //     final QCustomer qCustomer = QCustomer.customer;
+    //     var query = new JPAQuery<Customer>(entityManager)
+    //             .from(qCustomer)
+    //             .where(predicate)
+    //             .limit(pageable.getPageSize())
+    //             .offset(pageable.getOffset())
+    //             .orderBy(qCustomer.createdDate.desc());
+    //     return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
+    // }
+
+    public Page<Customer> searchCustomer(CustomerSearchDto customerSearchDto)
+    {
         Predicate predicate = makePredicate(customerSearchDto);
         Pageable pageable = PageRequest.of(customerSearchDto.getPage(), customerSearchDto.getSize());
+
         final QCustomer qCustomer = QCustomer.customer;
+        final QSell qSell = QSell.sell;
+
         var query = new JPAQuery<Customer>(entityManager)
-                .from(qCustomer)
-                .where(predicate)
-                .limit(pageable.getPageSize())
-                .offset(pageable.getOffset())
-                .orderBy(qCustomer.createdDate.desc());
+        .from(qCustomer)
+        .leftJoin(qSell)
+        .where(predicate)
+        .limit(10);
+
         return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
+
+
     }
+
+
+
+
+
+
+
+
 
     @org.springframework.transaction.annotation.Transactional
     public String makeActiveCustomer(Customer customer) {
@@ -75,5 +107,7 @@ public class CustomerService {
         customerRepository.save(customerDb);
         return "Customer made actvie again";
     }
+  
+
 
 }

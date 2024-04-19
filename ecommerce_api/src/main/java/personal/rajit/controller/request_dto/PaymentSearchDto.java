@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Accessors(chain = true)
 public class PaymentSearchDto extends SearchDto {
+    
     private List<String> idList;
     private List<String> idNotEqualList;
 

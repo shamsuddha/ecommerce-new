@@ -27,7 +27,7 @@ public class RoleController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteRole(@RequestBody Role role) {
+    public ResponseEntity<String> delete(@RequestBody Role role) {
         return new ResponseEntity(roleService.deleteRole(role), HttpStatusCode.valueOf(200));
     }
 

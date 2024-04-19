@@ -43,4 +43,5 @@ public class Sell extends Auditable{
     public Sell(String id) {
         this.id = id;
     }
+    
 }

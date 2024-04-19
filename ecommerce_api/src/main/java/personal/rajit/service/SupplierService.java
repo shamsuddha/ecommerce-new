@@ -63,4 +63,5 @@ public class SupplierService {
                 .orderBy(qSupplier.createdDate.desc());
         return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
     }
+
 }

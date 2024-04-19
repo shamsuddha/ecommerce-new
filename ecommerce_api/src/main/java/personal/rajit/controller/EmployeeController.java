@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<String> delete(@RequestBody Employee employee) {
         return new ResponseEntity(employeeService.deleteEmployee(employee), HttpStatusCode.valueOf(200));
     }
 

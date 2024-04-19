@@ -17,6 +17,7 @@ import java.util.List;
 @Builder
 @Accessors(chain = true)
 public class Role extends Auditable{
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -33,4 +34,5 @@ public class Role extends Auditable{
     public Role(String id) {
         this.id = id;
     }
+    
 }

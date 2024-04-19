@@ -26,7 +26,7 @@ public class SellDetailController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteSellDetail(@RequestBody SellDetail sellDetail) {
+    public ResponseEntity<String> delete(@RequestBody SellDetail sellDetail) {
         return new ResponseEntity(sellDetailService.deleteSellDetail(sellDetail), HttpStatusCode.valueOf(200));
     }
 

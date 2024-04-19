@@ -21,4 +21,5 @@ public class StockSearchDto extends SearchDto {
 
     private String name;
     private String nameIgnoreCase;
+    
 }

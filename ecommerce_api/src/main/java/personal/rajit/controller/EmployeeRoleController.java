@@ -27,7 +27,7 @@ public class EmployeeRoleController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteEmployeeRole(@RequestBody EmployeeRole employeeRole) {
+    public ResponseEntity<String> delete(@RequestBody EmployeeRole employeeRole) {
         return new ResponseEntity(employeeRoleService.deleteEmployeeRole(employeeRole), HttpStatusCode.valueOf(200));
     }
 
@@ -35,4 +35,5 @@ public class EmployeeRoleController {
     public ResponseEntity<Page<EmployeeRole>> search(@RequestBody EmployeeRoleSearchDto employeeRoleSearchDto) {
         return new ResponseEntity(employeeRoleService.searchEmployeeRole(employeeRoleSearchDto), HttpStatusCode.valueOf(200));
     }
+    
 }

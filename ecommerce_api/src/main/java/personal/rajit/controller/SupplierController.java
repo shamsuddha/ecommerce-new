@@ -27,7 +27,7 @@ public class SupplierController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<String> deleteSupplier(@RequestBody Supplier supplier) {
+    public ResponseEntity<String> delete(@RequestBody Supplier supplier) {
         return new ResponseEntity(supplierService.deleteSupplier(supplier), HttpStatusCode.valueOf(200));
     }
 

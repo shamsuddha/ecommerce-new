@@ -21,4 +21,5 @@ public class RoleSearchDto extends SearchDto {
 
     private String name;
     private String nameIgnoreCase;
+    
 }
