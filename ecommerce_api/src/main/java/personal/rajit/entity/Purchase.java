@@ -36,13 +36,17 @@ public class Purchase extends Auditable{
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_supplier_id"))
     private Supplier supplier;
 
+    // Purchase Many to One Employee
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id", nullable = false, foreignKey = @ForeignKey(name = "fk_employee_id"))
+    private Employee employee;
+
     @Column(name = "supplier_id", insertable = false, updatable = false)
     private String supplierId;
 
     // Purchase One to Many Purchase Detail
     @OneToMany(mappedBy = "purchase", fetch = FetchType.LAZY)
     private List<PurchaseDetail> purchaseDetailList;
-
 
     public Purchase(String id) {
       this.id = id;

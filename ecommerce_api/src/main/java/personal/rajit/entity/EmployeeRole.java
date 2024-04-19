@@ -37,4 +37,8 @@ public class EmployeeRole extends Auditable{
 
     @Column(name = "role_id", insertable = false, updatable = false)
     private String roleId;
+
+    public EmployeeRole(String id) {
+        this.id = id;
+    }
 }

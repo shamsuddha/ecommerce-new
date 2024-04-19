@@ -37,4 +37,8 @@ public class ProductCategory extends Auditable{
     @OneToMany(mappedBy = "productCategory", fetch = FetchType.LAZY)
     private List<Product> productList;
 
+    public ProductCategory(String id) {
+        this.id = id;
+    }
+
 }

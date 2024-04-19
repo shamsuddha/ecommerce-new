@@ -66,4 +66,8 @@ public class Product extends Auditable{
     // Product One to Many Sell Detail
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<SellDetail> sellDetailList;
+
+    public Product(String id) {
+        this.id = id;
+    }
 }

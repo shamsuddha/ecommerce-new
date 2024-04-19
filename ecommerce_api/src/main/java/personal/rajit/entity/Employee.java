@@ -43,4 +43,13 @@ public class Employee extends Auditable {
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private List<EmployeeRole> employeeRoleList;
 
+    // Employee one to many purchase
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Purchase> purchaseList;
+
+    public Employee(String id) {
+        this.id = id;
+    }
+
 }

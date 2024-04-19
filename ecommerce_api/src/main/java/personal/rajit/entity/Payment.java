@@ -26,4 +26,8 @@ public class Payment extends Auditable{
     @Column(name = "purpose")
     private String purpose;
 
+    public Payment(String id) {
+        this.id = id;
+    }
+
 }

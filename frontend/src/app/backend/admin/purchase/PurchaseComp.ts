@@ -14,7 +14,6 @@ import { Employee } from '../../../entity/Employee';
 import { Supplier } from '../../../entity/Supplier';
 import { EmployeeController } from '../../../controller/EmployeeController';
 import { EmployeeSearchDto } from '../../../controller/search_dto/EmployeeSearchDto';
-import { Page } from '../../../dto/Page';
 import { SupplierSearchDto } from '../../../controller/search_dto/SupplierSearchDto';
 import { SupplierController } from '../../../controller/SupplierController';
 import { toFaGfn } from '../../../util/MiscUtil';
@@ -22,6 +21,8 @@ import { PurchaseDetail } from '../../../entity/PurchaseDetail';
 import { Product } from '../../../entity/Product';
 import { ProductController } from '../../../controller/ProductController';
 import { ProductSearchDto } from '../../../controller/search_dto/ProductSearchDto';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DialogComp } from './dialog/DialogComp';
 
 @Component({
   selector: 'PurchaseComp',
@@ -35,25 +36,28 @@ import { ProductSearchDto } from '../../../controller/search_dto/ProductSearchDt
     RxReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,
-    AgGridAngular
+    AgGridAngular,
+    MatDialogModule
   ],
   providers: [],
 })
 export class PurchaseComp implements OnInit {
 
-  purchaseFg: FormGroup = this.rxFormBuilder.formGroup(Purchase);
   toFaGfn = toFaGfn;
+  purchaseFg: FormGroup = this.rxFormBuilder.formGroup(Purchase);
   purchaseList$: Observable<Array<Purchase>> = new Observable<Array<Purchase>>();
   employeeList$: Observable<Array<Employee>> = new Observable<Array<Employee>>();
   supplierList$: Observable<Array<Supplier>> = new Observable<Array<Supplier>>();
   productList$: Observable<Array<Product>> = new Observable<Array<Product>>();
+  purchaseDetailAndProductList$: Observable<Array<PurchaseDetail>> = new Observable<Array<PurchaseDetail>>();
 
   constructor(
     public employeeController: EmployeeController,
     public supplierController: SupplierController,
     public purchaseController: PurchaseController,
     public productController: ProductController,
-    public rxFormBuilder: RxFormBuilder
+    public rxFormBuilder: RxFormBuilder,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -80,11 +84,6 @@ export class PurchaseComp implements OnInit {
   }
 
   save() {
-    // console.log(this.purchaseFg.value);
-    // this.purchaseController.save(this.purchaseFg.value)
-    //   .subscribe((e: Purchase) => { console.log(e) });
-    // this.search();
-
     let purchase: Purchase = this.purchaseFg.value;
     purchase.purchaseDetailListSerde = purchase.purchaseDetailList;
     this.purchaseController.saveWithDetail(purchase).subscribe((e) => {
@@ -136,8 +135,23 @@ export class PurchaseComp implements OnInit {
     console.log((<FormGroup>fg).value)
   }
 
+  openDialog(purchase: Purchase) {
+   // this.purchaseDetailAndProductList$ = this.purchaseController.searchWithDetailAndProduct(purchase)
+    const dialogRef = this.dialog.open(DialogComp);
+    console.log(purchase);
 
+    dialogRef.afterClosed().subscribe(result => {
 
+    });
+  }
 
+  searchWithDetailAndProduct() {
+    this.purchaseList$ = this.purchaseController
+      .search(new PurchaseSearchDto({ idList: [] }))
+      .pipe(
+        map(e => e.content)
+      );
+    console.log(this.purchaseList$);
+  }
 
 }

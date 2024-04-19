@@ -66,4 +66,14 @@ public class EmployeeService {
                 .orderBy(qEmployee.createdDate.desc());
         return new PageImpl<>(query.fetch(), pageable, query.fetchCount());
     }
+
+    @org.springframework.transaction.annotation.Transactional
+    public Employee makeActiveCustomer(Employee employee) {
+        var employeeDb = entityValidationService.validateEmployee(employee.getId());
+        employeeDb.setEnabled(Boolean.TRUE);      
+        employeeDb = employeeRepository.save(employeeDb);
+        return employeeDb;
+    }
+
+    
 }

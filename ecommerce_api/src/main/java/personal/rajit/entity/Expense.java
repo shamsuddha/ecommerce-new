@@ -25,4 +25,8 @@ public class Expense extends Auditable{
 
     @Column(name = "amount")
     private Double amount;
+
+    public Expense(String id) {
+        this.id = id;
+    }
 }

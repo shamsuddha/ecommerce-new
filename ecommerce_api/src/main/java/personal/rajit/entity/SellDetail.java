@@ -41,4 +41,8 @@ public class SellDetail extends Auditable{
 
     @Column(name = "product_id", insertable = false, updatable = false)
     private String productId;
+
+    public SellDetail(String id) {
+        this.id = id;
+    }
 }

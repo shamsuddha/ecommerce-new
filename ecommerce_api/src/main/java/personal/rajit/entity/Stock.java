@@ -25,5 +25,9 @@ public class Stock extends Auditable{
 
     @Column(name = "name")
     private String name;
+
+    public Stock(String id) {
+        this.id = id;
+    }
 }
 

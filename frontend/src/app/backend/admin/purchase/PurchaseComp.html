@@ -19,6 +19,38 @@
           We'll never share your name with anyone else.
         </div>
       </div>
+      <div class="col-12">
+        <div class="d-flex bg-success text-light justify-content-around mb-2">
+          <h5 class="my-2 py-3 px-3 fw-bold"> Add products in your purchase</h5>
+          <button (click)="addPurchaseDetail()" class="btn waves-effect btn-info waves-light fw-bold">
+            + Add Product
+          </button>
+        </div>
+        <div formArrayName="purchaseDetailList">
+          <div *ngFor="let fg of toFaGfn(this.purchaseFg.get('purchaseDetailList')).controls;
+                    let index = index">
+            <div [formGroupName]="index">
+              <div class="row">
+                <div class="mb-4 mt-2 col">
+                  <label class="form-label fw-bold">Add Product</label>
+                  <ng-select [items]="productList$ | async" bindLabel="name" formControlName="product">
+                  </ng-select>
+                </div>
+                <div class="mb-4 mt-2 col">
+                  <label class="form-label fw-bold">Quantity</label>
+                  <input type="number" formControlName="quantity" class="form-control">
+                </div>
+                <div class="mb-4 mt-2 col">
+                  <label class="form-label fw-bold">Unit Price</label>
+                  <input type="number" formControlName="unitPrice" class="form-control">
+                </div>
+                <hr>
+                <!-- <button (click)="deleteDetail(fg,index)" class="btn btn-outline-primary waves-effect col">Delete</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="mb-3 col-6">
         <label class="form-label fw-bold">Total Purchase Amount</label>
         <input type="number" class="form-control" formControlName="totalAmount">
@@ -31,39 +63,6 @@
         <input type="number" class="form-control" formControlName="otherCost">
         <div id="name-help" class="form-text">
           We'll never share your name with anyone else.
-        </div>
-      </div>
-      <div class="col-12">
-        <h5 class="my-2 py-3 px-3 bg-secondary text-light fw-bold">Add Purchase Details</h5>
-        <div>
-          <button (click)="addPurchaseDetail()" class="btn waves-effect btn-info waves-light mt-2 mx-1">
-            + New
-          </button>
-          <div formArrayName="purchaseDetailList">
-            <div *ngFor="let fg of toFaGfn(this.purchaseFg.get('purchaseDetailList')).controls;
-                    let index = index">
-              <div [formGroupName]="index">
-                <div class="row">
-                  <div class="mb-4 mt-2 col">
-                    <label class="form-label fw-bold">Select Product</label>
-                    <ng-select [items]="productList$ | async" bindLabel="name" formControlName="product">
-                    </ng-select>
-                  </div>
-                  <div class="mb-4 mt-2 col">
-                    <label class="form-label fw-bold">Add Quantity</label>
-                    <input type="number" formArrayName="quantity" class="form-control">
-                  </div>
-                  <div class="mb-4 mt-2 col">
-                    <label class="form-label fw-bold">Price</label>
-                    <input type="number" formArrayName="unitPrice" class="form-control">
-                  </div>
-                  <hr>
-                  <!-- <button (click)="deleteDetail(fg,index)" class="btn btn-outline-primary waves-effect col">Delete</button> -->
-                </div>
-              </div>
-
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -84,16 +83,16 @@
       <table class="table">
         <thead class="table-light">
           <tr>
-            <th>Purchase ID</th>
-            <th>Supplier</th>
-            <th>Detail</th>
+            <th>Date</th>
+            <th>Note</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let purchase of purchaseList$ | async; let i = index">
-            <td>{{purchase.id}}</td>
-            <td>{{purchase.supplier}}</td>
+            <td>{{purchase.createdDate}}</td>
+            <td>{{purchase.note}}</td>
             <td>
               @if(purchase.enabled == true)
               {
@@ -112,8 +111,7 @@
                 Make Active
               </button>
               }
-              <button type="button" (click)="onUpdateClick(purchase)"
-                class="btn btn-info waves-effect waves-light mx-1">
+              <button type="button" (click)="openDialog(purchase)" class="btn btn-info waves-effect waves-light mx-1">
                 View Details
               </button>
               <button type="button" (click)="onUpdateClick(purchase)"

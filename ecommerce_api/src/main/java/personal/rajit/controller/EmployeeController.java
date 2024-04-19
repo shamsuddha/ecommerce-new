@@ -38,4 +38,9 @@ public class EmployeeController {
         return new ResponseEntity(employeeService.searchEmployee(employeeSearchDto), HttpStatusCode.valueOf(200));
     }
 
+    @PostMapping("/make-active")
+    public ResponseEntity<Page<Employee>> makeActive(@RequestBody Employee employee) {
+        return new ResponseEntity(employeeService.makeActiveCustomer(employee), HttpStatusCode.valueOf(200));
+    }
+
 }

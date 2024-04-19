@@ -45,4 +45,8 @@ public class Supplier extends Auditable{
     @OneToMany(mappedBy = "supplier", fetch = FetchType.LAZY)
     private List<Purchase> purchaseList;
 
+    public Supplier(String id) {
+        this.id = id;
+    }
+
 }

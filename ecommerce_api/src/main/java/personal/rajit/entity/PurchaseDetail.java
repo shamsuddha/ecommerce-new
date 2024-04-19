@@ -45,4 +45,8 @@ public class PurchaseDetail extends Auditable{
     @Column(name = "product_id", insertable = false, updatable = false)
     private String productId;
 
+    public PurchaseDetail(String id) {
+        this.id = id;
+    }
+
 }

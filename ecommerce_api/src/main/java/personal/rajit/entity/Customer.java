@@ -42,8 +42,13 @@ public class Customer extends Auditable {
     private String image;
 
     // Customer One to Many Sell
+    @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Sell> sellList;
+
+    public Customer(String id) {
+        this.id = id;
+    }
 
 
 }
