@@ -25,10 +25,10 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:9072/db1
-    name: db1
-    username: user1
-    password: password1
+    url: jdbc:postgresql://localhost:5432/postgres
+    name: postgres
+    username: postgres
+    password: 123456
     # jdbc:postgresql://localhost:9072/db1?user=user1&password=password1
     #    driver-class-name: com.mysql.cj.jdbc.Driver
     #    url: jdbc:mysql://localhost:3306/db1
